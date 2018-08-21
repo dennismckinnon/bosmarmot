@@ -1,0 +1,45 @@
+jobs:
+
+- name: deployEventsTest
+  deploy:
+      contract: EventsTest.sol
+
+- name: addRow1
+  call:
+      destination: $deployEventsTest
+      function: editRow
+      data:
+        - 1
+        - "first"
+
+- name: addRow2
+  call:
+      destination: $deployEventsTest
+      function: editRow
+      data:
+        - 2
+        - "Not First"
+
+- name: addRow3
+  call:
+      destination: $deployEventsTest
+      function: editRow
+      data:
+        - 3
+        - "Magic"
+
+- name: addRow4
+  call:
+      destination: $deployEventsTest
+      function: editRow
+      data:
+        - 10
+        - "fingers"
+
+- name: addRow5
+  call:
+      destination: $deployEventsTest
+      function: editRow
+      data:
+        - 42
+        - "The Truth"
