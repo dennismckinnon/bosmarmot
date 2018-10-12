@@ -18,7 +18,7 @@ type DBAdapter interface {
 	SecureColumnName(columnName string) string
 	// CreateTableQuery builds a CREATE TABLE query to create a new table
 	CreateTableQuery(tableName string, columns []types.SQLTableColumn) (string, string)
-	// LastBlockIDQuery builds a SELECT query to return the last block# for a given event filter from Log table
+	// LastBlockIDQuery builds a SELECT query to return the last block# from the Log table
 	LastBlockIDQuery() string
 	// FindTableQuery builds a SELECT query to check if a table exists
 	FindTableQuery() string
