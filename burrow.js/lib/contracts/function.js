@@ -22,7 +22,7 @@ var txPayload = function (data, account, address) {
   var payload = {}
 
   payload.Input = {Address: Buffer.from(account || ZERO_ADDRESS, 'hex'), Amount: 1}
-  payload.Address = address ? Buffer.from(address, 'hex') : ''
+  payload.Address = address ? Buffer.from(address, 'hex') : null
   payload.GasLimit = config.DEFAULT_GAS
   payload.Fee = config.DEFAULT_FEE
   payload.Data = Buffer.from(data, 'hex')
@@ -152,10 +152,10 @@ var SolidityFunction = function (abi) {
 
         // Meta Data (address, caller, height, etc)
         returnObj.contractAddress = result.Receipt.ContractAddress.toString('hex').toUpperCase()
-        returnObj.height = result.Height
-        returnObj.index = result.Index
-        returnObj.hash = result.TxHash.toString('hex').toUpperCase()
-        returnObj.type = result.TxType
+        returnObj.height = result.Header.Height
+        returnObj.index = result.Header.Index
+        returnObj.hash = result.Header.TxHash.toString('hex').toUpperCase()
+        returnObj.type = result.Header.TxType
         returnObj.result = result.Result
         returnObj.tx = result.Envelope
         returnObj.caller = convert.recApply(result.Envelope.Signatories, convert.bytesTB)
