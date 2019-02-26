@@ -1,4 +1,4 @@
-FROM golang:1.10.3-alpine3.8
+FROM golang:1.11.5-alpine3.8
 MAINTAINER Monax <support@monax.io>
 
 # This is the image used by the Circle CI config in this directory pushed to quay.io/monax/bosmarmot:ci
