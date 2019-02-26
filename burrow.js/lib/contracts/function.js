@@ -21,10 +21,10 @@ var types = function (args) {
 var txPayload = function (data, account, address) {
   var payload = {}
 
-  payload.Input = {Address: Buffer.from(account || ZERO_ADDRESS, 'hex'), Amount: 1}
+  payload.Input = {Address: Buffer.from(account || ZERO_ADDRESS, 'hex'), Amount: 0}
   payload.Address = address ? Buffer.from(address, 'hex') : null
   payload.GasLimit = config.DEFAULT_GAS
-  payload.Fee = config.DEFAULT_FEE
+  payload.Fee = 0
   payload.Data = Buffer.from(data, 'hex')
 
   return payload

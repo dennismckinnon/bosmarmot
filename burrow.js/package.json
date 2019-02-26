@@ -1,7 +1,7 @@
 {
   "name": "@monax/burrow",
   "description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "author": {
     "name": "Dennis Mckinnon"
   },
@@ -10,18 +10,13 @@
   },
   "dependencies": {
     "@grpc/proto-loader": "^0.4.0",
-    "bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
     "crypto-js": "3.1.4",
     "ethereumjs-abi": "^0.6.5",
-    "grpc": "^1.16.1",
-    "protobufjs": "^6.8.6",
-    "utf8": "2.1.2"
+    "grpc": "^1.18.0",
+    "protobufjs": "^6.8.6"
   },
   "devDependencies": {
-    "fs-extra": "^5.0.0",
-    "ink-docstrap": "1.3.0",
-    "istanbul": "0.4.5",
-    "jsdoc": "3.4.3",
+    "fs-extra": "^7.0.1",
     "mocha": "5.2.0",
     "solc": "0.4.24",
     "standard": "9.0.2"
@@ -35,12 +30,12 @@
     "Hyperledger",
     "Monax"
   ],
-  "license": "GPL-3.0",
+  "license": "Apache2.0",
   "main": "./index.js",
   "maintainers": [
     {
       "name": "Dennis Mckinnon",
-      "email": "Contact@Monax.io"
+      "email": "contact@monax.io"
     }
   ],
   "repository": {
@@ -48,9 +43,7 @@
     "url": "https://github.com/monax/bosmarmot"
   },
   "scripts": {
-    "doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
     "precommit": "standard --fix",
-    "predoc": "rm -rf doc",
     "pretest": "standard --fix",
     "test": "../tests/burrow.js.sh"
   },
