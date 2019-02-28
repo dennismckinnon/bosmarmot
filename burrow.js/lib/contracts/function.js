@@ -55,7 +55,7 @@ var decodeF = function (abi, output) {
   var outputTypes = types(outputs)
 
   // Decode raw bytes to arguments
-  var raw = convert.abiToBurrow(outputTypes, coder.rawDecode(outputTypes, output))
+  var raw = convert.abiToBurrow(outputTypes, coder.rawDecode(outputTypes, Buffer.from(output, 'hex')))
 
   // If an object is wanted,
   var result = {raw: raw.slice()}
@@ -104,7 +104,7 @@ var SolidityFunction = function (abi) {
   }
 
   var decode = function (data) {
-    return utils.web3ToBurrow(decodeF(abi, data, this.objectReturn))
+    return decodeF(abi, data, this.objectReturn)
   }
 
   var call = function () {

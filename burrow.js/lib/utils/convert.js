@@ -28,10 +28,14 @@ var bytesTB = function (arg) {
 }
 
 var bytesTA = function (arg) {
-  if (!/^0x/i.test(arg)) {
-    return '0x' + arg
+  if (typeof (arg) === 'string' && /^0x/i.test(arg)) {
+    arg = arg.slice(2)
   }
-  return arg
+  return Buffer.from(arg, 'hex')
+  // if (!/^0x/i.test(arg)) {
+  //   return '0x' + arg
+  // }
+  // return arg
 }
 
 var numberTB = function (arg) {

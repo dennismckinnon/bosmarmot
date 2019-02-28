@@ -21,6 +21,8 @@ let TestContract
 // Create a factory for the contract with the JSON interface 'myAbi'.
 
 describe('Setting and Getting Values:', function () {
+  this.timeout(10 * 1000)
+
   before(Test.before((burrow) => {
     return burrow.contracts.deploy(abi, bytecode).then((contract) => {
       TestContract = contract

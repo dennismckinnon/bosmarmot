@@ -18,7 +18,7 @@ var defaultHandlers = {
   }
 }
 
-// var nullHandler = function (result) { return result }
+var nullHandler = function (result) { return result }
 
 function ContractManager (burrow, options) {
   options = Object.assign({objectReturn: false}, options)
@@ -26,12 +26,12 @@ function ContractManager (burrow, options) {
   this.burrow = burrow
   this.handlers = handlers
 
-  // As of 0.24.0 change the default handler to use nullhandler by default
+  // As of 0.25.0 change the default handler to use nullhandler by default
   if (options.objectReturn) {
-    // this.handlers.call = nullHandler
+    this.handlers.call = nullHandler
   } else {
     console.log('DEPRECATION WARNING. As of 0.25.0 the default behaviour of contract calls will be to return the full result object (instead of an array of arguments)')
-    console.log('If you wish to keep this behaviour after 0.24.0 you can recreate it by using a handler function for calls.')
+    console.log('If you wish to keep this behaviour after 0.25.0 you can recreate it by using a handler function for calls.')
     console.log('This can be done by passing {handlers: {call: function(result){return result.raw}} as an option to burrow object creation (new burrow(URL, account, options))')
   }
 }
